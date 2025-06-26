@@ -46,66 +46,7 @@ export default function ReportsPage() {
           </Button>
         </div>
       </div>
-
       <TabReport />
-
-
-
-      <Card>
-        <CardHeader>
-          <CardTitle>รายงานที่บันทึกไว้</CardTitle>
-          <CardDescription>รายงานที่คุณบันทึกไว้เพื่อดูภายหลัง</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between rounded-lg border p-4">
-              <div className="flex items-center gap-4">
-                <div className="rounded-full bg-blue-100 p-2">
-                  <FileText className="h-5 w-5 text-blue-800" />
-                </div>
-                <div>
-                  <h3 className="font-medium">รายงานประจำเดือนมิถุนายน 2567</h3>
-                  <p className="text-sm text-muted-foreground">บันทึกเมื่อ 30/06/2567</p>
-                </div>
-              </div>
-              <Button variant="outline" size="sm" className="flex gap-1">
-                <Download className="h-4 w-4" />
-                ดาวน์โหลด
-              </Button>
-            </div>
-            <div className="flex items-center justify-between rounded-lg border p-4">
-              <div className="flex items-center gap-4">
-                <div className="rounded-full bg-blue-100 p-2">
-                  <FileText className="h-5 w-5 text-blue-800" />
-                </div>
-                <div>
-                  <h3 className="font-medium">รายงานประจำเดือนพฤษภาคม 2567</h3>
-                  <p className="text-sm text-muted-foreground">บันทึกเมื่อ 31/05/2567</p>
-                </div>
-              </div>
-              <Button variant="outline" size="sm" className="flex gap-1">
-                <Download className="h-4 w-4" />
-                ดาวน์โหลด
-              </Button>
-            </div>
-            <div className="flex items-center justify-between rounded-lg border p-4">
-              <div className="flex items-center gap-4">
-                <div className="rounded-full bg-blue-100 p-2">
-                  <FileText className="h-5 w-5 text-blue-800" />
-                </div>
-                <div>
-                  <h3 className="font-medium">รายงานไตรมาสที่ 1/2567</h3>
-                  <p className="text-sm text-muted-foreground">บันทึกเมื่อ 31/03/2567</p>
-                </div>
-              </div>
-              <Button variant="outline" size="sm" className="flex gap-1">
-                <Download className="h-4 w-4" />
-                ดาวน์โหลด
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   )
 }

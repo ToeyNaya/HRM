@@ -151,7 +151,9 @@ export default function EmployeesPage() {
                       <TableCell>{emp.departmentName}</TableCell>
                       <TableCell>{emp.email}</TableCell>
                       <TableCell>
-                      <Badge variant="default">{emp.status || "ทำงาน"}</Badge>
+                        <Badge variant={emp.workStatus === "ออกจากงาน" ? "destructive" : "default"}>
+                        {emp.workStatus || "ทำงาน"}
+                        </Badge>
                       </TableCell>
                       <TableCell className="text-center">
                         <Button variant="ghost" size="sm" onClick={() => handleViewEmployee(emp.empID)}>
