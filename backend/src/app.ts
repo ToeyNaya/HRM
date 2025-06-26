@@ -1,8 +1,22 @@
 import express from 'express';
-import userRoutes from './routes/userRoutes';
+import employeeRoutes from './routes/employeeRoutes';
+import educationRoutes from './routes/educationRoutes';
+import leaveRoutes from './routes/leaveRoutes';
+import workExperienceRoutes from './routes/workExperienceRoutes';
+import cors from 'cors';  
 
 const app = express();
+
+app.use(cors());
+
 app.use(express.json());
-app.use('/api', userRoutes);
+app.use('/api', employeeRoutes);
+app.use('/api', educationRoutes);
+app.use('/api', leaveRoutes);
+app.use('/api', workExperienceRoutes);
+app.get('/', (req, res) => {
+    res.send('Welcome to the Employee Management API');
+});
+
 
 export default app;

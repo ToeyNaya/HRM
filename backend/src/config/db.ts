@@ -4,5 +4,5 @@ export const db = mysql.createPool({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'testdb',
+  database: 'hrm_system',
 });

@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -52,16 +50,6 @@ const hrMenuItems = [
     icon: <CreditCard className="h-5 w-5" />,
   },
   {
-    title: "การประเมินผล",
-    href: "/performance",
-    icon: <BarChart3 className="h-5 w-5" />,
-  },
-  {
-    title: "การฝึกอบรม",
-    href: "/training",
-    icon: <GraduationCap className="h-5 w-5" />,
-  },
-  {
     title: "รายงาน",
     href: "/reports",
     icon: <FileText className="h-5 w-5" />,
@@ -101,16 +89,6 @@ const employeeMenuItems = [
     icon: <CreditCard className="h-5 w-5" />,
   },
   {
-    title: "การประเมินผล",
-    href: "/performance",
-    icon: <BarChart3 className="h-5 w-5" />,
-  },
-  {
-    title: "การฝึกอบรม",
-    href: "/training",
-    icon: <GraduationCap className="h-5 w-5" />,
-  },
-  {
     title: "การแจ้งเตือน",
     href: "/notifications",
     icon: <Bell className="h-5 w-5" />,
@@ -124,6 +102,17 @@ export default function Sidebar() {
 
   // เลือกเมนูตามบทบาทของผู้ใช้
   const menuItems = user?.role === "hr" ? hrMenuItems : employeeMenuItems
+
+  // ฟังก์ชันที่จะเช็คว่า pathname ตรงกับ href หรือไม่
+  const isActive = (href: string) => {
+    if (pathname === href) {
+      return "bg-white text-black"; // ตรงกับ path ทั้งหมด
+    }
+    if (pathname.startsWith(href) && href !== "/") {
+      return "bg-white text-black"; // ถ้าพาธย่อยตรงกับ href เช่น /employees กับ /employees/details
+    }
+    return "text-blue-100 hover:bg-blue-800";
+  }
 
   return (
     <>
@@ -146,7 +135,7 @@ export default function Sidebar() {
         {user && (
           <div className="border-b border-blue-800 p-4">
             <div className="flex items-center gap-x-5 mx-2">
-            <Avatar className="h-14 w-14">
+              <Avatar className="h-14 w-14">
                 <AvatarImage src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D" alt="@user" />
                 <AvatarFallback>{user?.role === "hr" ? "HR" : "พน"}</AvatarFallback>
               </Avatar>
@@ -155,7 +144,6 @@ export default function Sidebar() {
                 <div className="text-xs text-blue-200">{user.role === "hr" ? "ผู้ดูแลระบบ HR" : "พนักงาน"}</div>
               </div>
             </div>
-
           </div>
         )}
 
@@ -167,7 +155,7 @@ export default function Sidebar() {
                 href={item.href}
                 className={cn(
                   "flex items-center rounded-lg px-4 py-2 text-sm font-medium transition-colors",
-                  pathname === item.href ? "bg-white text-black" : "text-blue-100 hover:bg-blue-800",
+                  isActive(item.href) // ใช้ฟังก์ชันเพื่อเช็คสถานะการใช้งาน
                 )}
                 onClick={() => setIsOpen(false)}
               >
