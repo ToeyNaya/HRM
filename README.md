@@ -29,5 +29,5 @@
 - 🧰 Node.js + Express
 - 🔒 Bcrypt (เข้ารหัสรหัสผ่าน)
 - 🪪 JWT (ระบบ Auth)
-- 🐬 MySQL (หรือใช้ฐานข้อมูลอื่น ๆ ก็ได้)
+- 🐬 MySQL
 - 🧭 Role-Based Access Middleware
